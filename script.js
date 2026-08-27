@@ -101,6 +101,7 @@ function updateActiveNav() {
 
 }
 
+
 window.addEventListener("scroll", updateActiveNav);
 
 
@@ -265,6 +266,8 @@ document.addEventListener("keydown", function (event) {
 });
 
 
+
+
 /* ========================================
    CONTACT FORM
 ======================================== */
@@ -349,8 +352,9 @@ function changeFeatureSlides() {
 
 }
 
-
 setInterval(changeFeatureSlides, 5000);
+
+
 /* ========================================
    GALLERY SLIDESHOW
 ======================================== */

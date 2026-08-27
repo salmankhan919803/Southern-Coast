@@ -76,15 +76,6 @@ button {
     visibility: hidden;
 }
 
-.loader-logo {
-    color: white;
-
-    font-family: "Cormorant Garamond", serif;
-
-    font-size: 32px;
-
-    letter-spacing: 6px;
-}
 
 .loader-line {
     width: 80px;
@@ -174,11 +165,10 @@ button {
 }
 .logo img {
     width: 220px;
+    max-width: 100%;
     height: auto;
     display: block;
     object-fit: contain;
-
-    transform: translateX(-40px);
 
     filter:
         drop-shadow(0 2px 3px rgba(0, 0, 0, 1))
@@ -407,10 +397,6 @@ nav {
     transition: .3s ease;
 }
 
-.hero-title:hover {
-    color: var(--gold);
-    letter-spacing: 6px;
-}
 .hero-title:hover {
     color: var(--gold);
 
@@ -1599,6 +1585,7 @@ footer {
 
 @media (max-width: 600px) {
 
+
     footer {
         padding: 40px 15px 18px;
     }
@@ -1869,7 +1856,36 @@ footer {
 }
 
 
+/* ========================================
+   MOBILE RESPONSIVE
+======================================== */
+
 @media (max-width: 600px) {
+
+    /* =========================
+       LOGO
+    ========================= */
+
+   .logo img {
+    width: 150px;
+    max-width: 55vw;
+    height: auto;
+}
+
+
+    /* =========================
+       HERO SLIDESHOW
+    ========================= */
+
+    .hero-slide {
+        background-size: cover;
+        background-position: center center;
+    }
+
+
+    /* =========================
+       HERO
+    ========================= */
 
     .section {
         padding: 80px 6%;
@@ -1881,17 +1897,19 @@ footer {
 
     .hero-title {
         font-size: 10px;
-
         letter-spacing: 3px;
     }
 
     .hero-buttons {
         flex-direction: column;
-
         max-width: 240px;
-
         margin: auto;
     }
+
+
+    /* =========================
+       ABOUT
+    ========================= */
 
     .about-image img {
         height: 420px;
@@ -1903,9 +1921,13 @@ footer {
 
     .about-details {
         flex-direction: column;
-
         gap: 20px;
     }
+
+
+    /* =========================
+       FEATURES
+    ========================= */
 
     .features {
         grid-template-columns: 1fr;
@@ -1913,9 +1935,13 @@ footer {
 
     .feature {
         border-right: 0;
-
         border-bottom: 1px solid rgba(255,255,255,.1);
     }
+
+
+    /* =========================
+       MENU + GALLERY
+    ========================= */
 
     .menu-grid,
     .gallery-grid {
@@ -1934,6 +1960,29 @@ footer {
         padding: 10px 16px;
     }
 
+
+    /* =========================
+       GALLERY SLIDESHOW
+    ========================= */
+
+    .gallery-slideshow {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    .gallery-slideshow img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center center;
+    }
+
+
+    /* =========================
+       LOCATION
+    ========================= */
+
     .location-info {
         padding: 70px 7%;
     }
@@ -1943,25 +1992,36 @@ footer {
         min-height: 450px;
     }
 
-    .footer-links {
-        flex-wrap: wrap;
+
+    /* =========================
+       FOOTER
+    ========================= */
+
+    footer {
+        padding: 40px 15px 18px;
     }
 
-}
-.footer-logo img {
-    width: 180px;
-}
+    .footer-logo img {
+        width: 150px;
+    }
 
-.footer-links {
-    gap: 15px 20px;
-}
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 12px 18px;
+    }
 
-.footer-social {
-    flex-direction: column;
+    .footer-contact {
+        gap: 10px;
+    }
 
-    align-items: center;
-}
+    .footer-social {
+        flex-direction: column;
+        align-items: center;
+    }
 
-.footer-social a {
-    width: 180px;
+    .footer-social a {
+        width: 180px;
+        min-width: 100px;
+    }
+
 }
