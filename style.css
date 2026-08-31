@@ -1717,36 +1717,17 @@ footer {
    REVEAL ANIMATIONS
 ======================================== */
 
+/* ========================================
+   REVEAL ANIMATIONS
+======================================== */
+
 .reveal,
 .reveal-left,
 .reveal-right {
-    opacity: 0;
-
-    transition:
-        opacity .8s ease,
-        transform .8s ease;
-}
-
-.reveal {
-    transform: translateY(30px);
-}
-
-.reveal-left {
-    transform: translateX(-35px);
-}
-
-.reveal-right {
-    transform: translateX(35px);
-}
-
-.reveal.show,
-.reveal-left.show,
-.reveal-right.show {
     opacity: 1;
-
-    transform: translate(0);
+    transform: none;
+    transition: none;
 }
-
 
 /* ========================================
    RESPONSIVE
@@ -2044,35 +2025,6 @@ footer {
         opacity: 1;
         transform: none;
         transition: none;
-    }
-
-}
-/* ========================================
-   MOBILE FAST SCROLL FIX
-======================================== */
-
-@media (max-width: 768px) {
-
-    html,
-    body {
-        background: #f5f0e8;
-    }
-
-    section {
-        background-color: #f5f0e8;
-    }
-
-    img {
-        max-width: 100%;
-        height: auto;
-    }
-
-    .hero,
-    .section,
-    .features-section,
-    .gallery-section {
-        transform: translateZ(0);
-        -webkit-transform: translateZ(0);
     }
 
 }
