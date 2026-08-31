@@ -484,15 +484,16 @@ nav {
 }
 
 .btn-outline {
+    background: var(--gold);
     color: white;
+    border: 1px solid var(--gold);
 }
 
 .btn-outline:hover {
-    background: white;
-
-    color: var(--dark);
+    background: #ad804d;
+    color: white;
+    border-color: #ad804d;
 }
-
 .hero-info {
     position: absolute;
 
