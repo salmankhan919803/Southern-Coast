@@ -6,12 +6,11 @@ window.addEventListener("load", function () {
 
     const loader = document.getElementById("loader");
 
-    setTimeout(function () {
+    if (loader) {
         loader.classList.add("hide");
-    }, 500);
+    }
 
 });
-
 
 /* ========================================
    NAVBAR

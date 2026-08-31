@@ -1,7 +1,14 @@
 /* ========================================
    RESET
 ======================================== */
+html {
+    background: #f5f0e8;
+}
 
+body {
+    background: #f5f0e8;
+    min-height: 100vh;
+}
 * {
     margin: 0;
     padding: 0;
@@ -2022,6 +2029,21 @@ footer {
     .footer-social a {
         width: 180px;
         min-width: 100px;
+    }
+
+}
+/* ========================================
+   MOBILE SCROLL FIX
+======================================== */
+
+@media (max-width: 768px) {
+
+    .reveal,
+    .reveal-left,
+    .reveal-right {
+        opacity: 1;
+        transform: none;
+        transition: none;
     }
 
 }
