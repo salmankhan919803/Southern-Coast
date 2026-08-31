@@ -304,14 +304,6 @@ h2 span { color: var(--brown); font-style: italic; }
     color: white;
     text-align: center;
 }
-.special-bg { position: absolute; inset: 0; background: url("special/FL-42.jpg") center/cover no-repeat; }
-.special-overlay { position: absolute; inset: 0; background: rgba(27,16,12,.73); }
-.special-content { position: relative; z-index: 1; max-width: 700px; padding: 30px; }
-.special h2 { font-size: clamp(55px, 7vw, 90px); }
-.special h2 span { color: var(--gold); }
-.special-line { width: 70px; height: 1px; margin: 25px auto; background: var(--gold); }
-.special-content > p:not(.eyebrow) { margin-bottom: 30px; color: #ddd; line-height: 1.8; }
-
 /* Gallery */
 .gallery { overflow: hidden; }
 .gallery-tabs { display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; margin: -20px auto 42px; }
