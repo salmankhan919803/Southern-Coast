@@ -2028,4 +2028,17 @@ footer {
     }
 
 }
+/* ========================================
+   MOBILE HERO BUTTON SPACING
+======================================== */
+
+@media (max-width: 600px) {
+
+    .hero-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+
+}
 
