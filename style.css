@@ -2047,3 +2047,32 @@ footer {
     }
 
 }
+/* ========================================
+   MOBILE FAST SCROLL FIX
+======================================== */
+
+@media (max-width: 768px) {
+
+    html,
+    body {
+        background: #f5f0e8;
+    }
+
+    section {
+        background-color: #f5f0e8;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .hero,
+    .section,
+    .features-section,
+    .gallery-section {
+        transform: translateZ(0);
+        -webkit-transform: translateZ(0);
+    }
+
+}
