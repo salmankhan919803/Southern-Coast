@@ -1,438 +1,348 @@
 /* ========================================
-   PAGE LOADER
+   SOUTHERN COAST - FIXED SCRIPT
 ======================================== */
 
-window.addEventListener("load", function () {
+(() => {
+    "use strict";
 
-    const loader = document.getElementById("loader");
+    /* ========================================
+       PAGE LOADER
+    ======================================== */
 
-    if (loader) {
-        loader.classList.add("hide");
+    window.addEventListener("load", () => {
+        const loader = document.getElementById("loader");
+        if (loader) loader.classList.add("hide");
+    });
+
+    /* ========================================
+       NAVBAR
+    ======================================== */
+
+    const navbar = document.getElementById("navbar");
+
+    const updateNavbar = () => {
+        if (!navbar) return;
+        navbar.classList.toggle("scrolled", window.scrollY > 60);
+    };
+
+    window.addEventListener("scroll", updateNavbar, { passive: true });
+    updateNavbar();
+
+    /* ========================================
+       MOBILE MENU
+    ======================================== */
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navMenu = document.getElementById("navMenu");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener("click", () => {
+            const isOpen = navMenu.classList.toggle("open");
+            menuToggle.setAttribute("aria-expanded", String(isOpen));
+        });
     }
 
-});
-
-/* ========================================
-   NAVBAR
-======================================== */
-
-const navbar = document.getElementById("navbar");
-
-window.addEventListener("scroll", function () {
-
-    if (window.scrollY > 60) {
-        navbar.classList.add("scrolled");
-    } else {
-        navbar.classList.remove("scrolled");
-    }
-
-});
-
-
-/* ========================================
-   MOBILE MENU
-======================================== */
-
-const menuToggle = document.getElementById("menuToggle");
-const navMenu = document.getElementById("navMenu");
-
-menuToggle.addEventListener("click", function () {
-
-    navMenu.classList.toggle("open");
-
-});
-
-
-/* Close menu after clicking link */
-
-const navLinks = document.querySelectorAll(".nav-link");
-
-navLinks.forEach(function (link) {
-
-    link.addEventListener("click", function () {
-
-        navMenu.classList.remove("open");
-
+    navLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+            if (navMenu) navMenu.classList.remove("open");
+            if (menuToggle) menuToggle.setAttribute("aria-expanded", "false");
+        });
     });
 
-});
+    /* ========================================
+       ACTIVE NAVIGATION
+    ======================================== */
 
+    const sections = document.querySelectorAll("section[id]");
 
-/* ========================================
-   ACTIVE NAVIGATION
-======================================== */
+    const updateActiveNav = () => {
+        let currentSection = "";
 
-const sections = document.querySelectorAll("section[id]");
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop - 160;
+            const sectionBottom = sectionTop + section.offsetHeight;
 
-function updateActiveNav() {
+            if (window.scrollY >= sectionTop && window.scrollY < sectionBottom) {
+                currentSection = section.id;
+            }
+        });
 
-    let currentSection = "";
+        navLinks.forEach((link) => {
+            link.classList.toggle(
+                "active",
+                link.getAttribute("href") === `#${currentSection}`
+            );
+        });
+    };
 
-    sections.forEach(function (section) {
+    window.addEventListener("scroll", updateActiveNav, { passive: true });
+    updateActiveNav();
 
-        const sectionTop =
-            section.offsetTop - 160;
+    /* ========================================
+       SCROLL REVEAL
+    ======================================== */
 
-        const sectionBottom =
-            sectionTop + section.offsetHeight;
-
-        if (
-            window.scrollY >= sectionTop &&
-            window.scrollY < sectionBottom
-        ) {
-            currentSection = section.id;
-        }
-
-    });
-
-    navLinks.forEach(function (link) {
-
-        link.classList.remove("active");
-
-        if (
-            link.getAttribute("href") ===
-            "#" + currentSection
-        ) {
-            link.classList.add("active");
-        }
-
-    });
-
-}
-
-
-window.addEventListener("scroll", updateActiveNav);
-
-
-/* ========================================
-   SCROLL REVEAL
-======================================== */
-
-const revealElements =
-    document.querySelectorAll(
+    const revealElements = document.querySelectorAll(
         ".reveal, .reveal-left, .reveal-right"
     );
 
-
-const revealObserver =
-    new IntersectionObserver(
-        function (entries) {
-
-            entries.forEach(function (entry) {
-
-                if (entry.isIntersecting) {
-
+    if ("IntersectionObserver" in window) {
+        const revealObserver = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
                     entry.target.classList.add("show");
+                    revealObserver.unobserve(entry.target);
+                });
+            },
+            { threshold: 0.12 }
+        );
 
-                    revealObserver.unobserve(
-                        entry.target
-                    );
+        revealElements.forEach((element) => revealObserver.observe(element));
+    } else {
+        revealElements.forEach((element) => element.classList.add("show"));
+    }
 
-                }
+    /* ========================================
+       GALLERY FILTER
+    ======================================== */
 
+    const galleryGrid = document.querySelector(".gallery-grid");
+    const galleryTabs = document.querySelectorAll(".gallery-tab");
+    const galleryItems = document.querySelectorAll(".gallery-item");
+
+    galleryTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+            const filter = tab.dataset.filter || "all";
+
+            galleryTabs.forEach((item) => {
+                item.classList.toggle("active", item === tab);
             });
 
-        },
-        {
-            threshold: 0.12
-        }
-    );
+            galleryItems.forEach((item) => {
+                const categories = (item.dataset.category || "")
+                    .split(/\s+/)
+                    .filter(Boolean);
 
+                const shouldShow =
+                    filter === "all" || categories.includes(filter);
 
-revealElements.forEach(function (element) {
+                item.classList.toggle("hidden", !shouldShow);
+                item.setAttribute("aria-hidden", String(!shouldShow));
+            });
 
-    revealObserver.observe(element);
-
-});
-
-
-/* ========================================
-   GALLERY FILTER
-======================================== */
-
-const galleryTabs =
-    document.querySelectorAll(".gallery-tab");
-
-const galleryItems =
-    document.querySelectorAll(".gallery-item");
-
-
-galleryTabs.forEach(function (tab) {
-
-    tab.addEventListener("click", function () {
-
-        /* Remove active */
-
-        galleryTabs.forEach(function (item) {
-            item.classList.remove("active");
+            if (galleryGrid) {
+                galleryGrid.classList.toggle("is-filtered", filter !== "all");
+            }
         });
+    });
 
-        /* Add active */
+    /* ========================================
+       OPTIONAL VIDEO MODAL
+       Safe even when #playVideo is not present.
+    ======================================== */
 
-        tab.classList.add("active");
+    const videoModal = document.getElementById("videoModal");
+    const closeVideo = document.getElementById("closeVideo");
+    const videoTriggers = document.querySelectorAll("#playVideo, [data-open-video]");
 
-        const filter =
-            tab.getAttribute("data-filter");
+    const openVideoModal = () => {
+        if (!videoModal) return;
+        videoModal.classList.add("open");
+        document.body.classList.add("no-scroll");
+    };
 
+    const closeVideoModal = () => {
+        if (!videoModal) return;
+        videoModal.classList.remove("open");
+        document.body.classList.remove("no-scroll");
+    };
 
-        galleryItems.forEach(function (item) {
+    videoTriggers.forEach((trigger) => {
+        trigger.addEventListener("click", openVideoModal);
+    });
 
-            const category =
-                item.getAttribute("data-category");
+    if (closeVideo) closeVideo.addEventListener("click", closeVideoModal);
 
+    if (videoModal) {
+        videoModal.addEventListener("click", (event) => {
+            if (event.target === videoModal) closeVideoModal();
+        });
+    }
 
-            if (
-                filter === "all" ||
-                category === filter
-            ) {
+    /* ========================================
+       ESC KEY CLOSE
+    ======================================== */
 
-                item.classList.remove("hidden");
+    document.addEventListener("keydown", (event) => {
+        if (event.key !== "Escape") return;
+        closeVideoModal();
+        if (navMenu) navMenu.classList.remove("open");
+        if (menuToggle) menuToggle.setAttribute("aria-expanded", "false");
+    });
 
-            } else {
+    /* ========================================
+       CONTACT FORM
+    ======================================== */
 
-                item.classList.add("hidden");
+    const contactForm = document.getElementById("contactForm");
 
+    if (contactForm) {
+        contactForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            const nameInput = document.getElementById("name");
+            const name = nameInput ? nameInput.value.trim() : "";
+
+            if (!name) {
+                alert("Please enter your name.");
+                if (nameInput) nameInput.focus();
+                return;
             }
 
+            alert(`Thank you, ${name}! Your message has been received.`);
+            contactForm.reset();
         });
-
-    });
-
-});
-
-
-/* ========================================
-   VIDEO MODAL
-======================================== */
-
-const videoModal =
-    document.getElementById("videoModal");
-
-const playVideo =
-    document.getElementById("playVideo");
-
-const closeVideo =
-    document.getElementById("closeVideo");
-
-
-playVideo.addEventListener("click", function () {
-
-    videoModal.classList.add("open");
-
-    document.body.classList.add("no-scroll");
-
-});
-
-
-closeVideo.addEventListener("click", function () {
-
-    videoModal.classList.remove("open");
-
-    document.body.classList.remove("no-scroll");
-
-});
-
-
-videoModal.addEventListener("click", function (event) {
-
-    if (event.target === videoModal) {
-
-        videoModal.classList.remove("open");
-
-        document.body.classList.remove("no-scroll");
-
     }
 
-});
+    /* ========================================
+       HERO SLIDESHOW
+    ======================================== */
 
+    const heroSlides = Array.from(document.querySelectorAll(".hero-slide"));
 
-/* ========================================
-   ESC KEY CLOSE
-======================================== */
+    if (heroSlides.length > 1) {
+        let currentSlide = heroSlides.findIndex((slide) =>
+            slide.classList.contains("active")
+        );
 
-document.addEventListener("keydown", function (event) {
+        if (currentSlide < 0) currentSlide = 0;
 
-    if (event.key === "Escape") {
-
-        videoModal.classList.remove("open");
-
-        document.body.classList.remove("no-scroll");
-
-        navMenu.classList.remove("open");
-
+        setInterval(() => {
+            heroSlides[currentSlide].classList.remove("active");
+            currentSlide = (currentSlide + 1) % heroSlides.length;
+            heroSlides[currentSlide].classList.add("active");
+        }, 5000);
     }
 
-});
+    /* ========================================
+       FEATURE SLIDESHOW
+    ======================================== */
 
-
-
-
-/* ========================================
-   CONTACT FORM
-======================================== */
-
-const contactForm =
-    document.getElementById("contactForm");
-
-
-contactForm.addEventListener("submit", function (event) {
-
-    event.preventDefault();
-
-    const name =
-        document.getElementById("name").value.trim();
-
-
-    if (name === "") {
-        alert("Please enter your name.");
-        return;
-    }
-
-
-    alert(
-        "Thank you, " +
-        name +
-        "! Your message has been received."
+    const featureSlideshows = Array.from(
+        document.querySelectorAll(".feature-slideshow")
     );
 
+    if (featureSlideshows.length) {
+        let featureSlideIndex = 0;
+        const maxFeatureSlides = Math.max(
+            ...featureSlideshows.map(
+                (slideshow) => slideshow.querySelectorAll(".feature-slide").length
+            )
+        );
 
-    contactForm.reset();
+        if (maxFeatureSlides > 1) {
+            setInterval(() => {
+                featureSlideIndex = (featureSlideIndex + 1) % maxFeatureSlides;
 
-});
-const heroSlides = document.querySelectorAll(".hero-slide");
+                featureSlideshows.forEach((slideshow) => {
+                    const slides = Array.from(
+                        slideshow.querySelectorAll(".feature-slide")
+                    );
 
-let currentSlide = 0;
+                    if (!slides.length) return;
 
-function changeHeroSlide() {
-    heroSlides[currentSlide].classList.remove("active");
-
-    currentSlide++;
-
-    if (currentSlide >= heroSlides.length) {
-        currentSlide = 0;
+                    slides.forEach((slide) => slide.classList.remove("active"));
+                    slides[featureSlideIndex % slides.length].classList.add("active");
+                });
+            }, 5000);
+        }
     }
 
-    heroSlides[currentSlide].classList.add("active");
-}
+    /* ========================================
+       GALLERY SMOOTH SYNCHRONIZED SLIDESHOW
+       - no hard-coded image count
+       - preloads images
+       - double-buffered crossfade, so no blank frame
+    ======================================== */
 
-setInterval(changeHeroSlide, 5000);
-/* ========================================
-   FEATURE SLIDESHOW
-   SAME AS HOME SLIDESHOW
-======================================== */
+    const galleryBoxes = Array.from(
+        document.querySelectorAll(".gallery-slideshow[data-images]")
+    );
 
-const featureSlideshows =
-    document.querySelectorAll(".feature-slideshow");
+    const galleryStates = galleryBoxes
+        .map((box) => {
+            const images = (box.dataset.images || "")
+                .split(",")
+                .map((src) => src.trim())
+                .filter(Boolean);
 
-let featureSlideIndex = 0;
+            const firstLayer = box.querySelector("img");
+            if (!images.length || !firstLayer) return null;
 
+            images.forEach((src) => {
+                const preloadedImage = new Image();
+                preloadedImage.src = src;
+            });
 
-function changeFeatureSlides() {
+            box.classList.add("is-ready");
+            firstLayer.classList.add("gallery-layer", "is-visible");
 
-    featureSlideshows.forEach(function (slideshow) {
+            const secondLayer = firstLayer.cloneNode(true);
+            secondLayer.removeAttribute("id");
+            secondLayer.classList.remove("is-visible");
+            box.appendChild(secondLayer);
 
-        const slides =
-            slideshow.querySelectorAll(".feature-slide");
+            return {
+                images,
+                visibleLayer: firstLayer,
+                hiddenLayer: secondLayer
+            };
+        })
+        .filter(Boolean);
 
-        slides.forEach(function (slide) {
-            slide.classList.remove("active");
-        });
+    if (galleryStates.length) {
+        const maxGallerySlides = Math.max(
+            ...galleryStates.map((state) => state.images.length)
+        );
 
-        slides[featureSlideIndex].classList.add("active");
+        let gallerySlideIndex = 0;
 
-    });
+        const changeGalleryImages = async () => {
+            gallerySlideIndex = (gallerySlideIndex + 1) % maxGallerySlides;
 
+            await Promise.all(
+                galleryStates.map(async (state) => {
+                    const nextSrc =
+                        state.images[gallerySlideIndex % state.images.length];
 
-    featureSlideIndex++;
+                    state.hiddenLayer.src = nextSrc;
 
-    if (featureSlideIndex >= 3) {
-        featureSlideIndex = 0;
+                    if (typeof state.hiddenLayer.decode === "function") {
+                        try {
+                            await state.hiddenLayer.decode();
+                        } catch (_) {
+                            // Keep current image visible if decode is not supported/ready.
+                        }
+                    }
+                })
+            );
+
+            requestAnimationFrame(() => {
+                galleryStates.forEach((state) => {
+                    state.visibleLayer.classList.remove("is-visible");
+                    state.hiddenLayer.classList.add("is-visible");
+
+                    const oldVisible = state.visibleLayer;
+                    state.visibleLayer = state.hiddenLayer;
+                    state.hiddenLayer = oldVisible;
+                });
+            });
+        };
+
+        if (maxGallerySlides > 1) {
+            setInterval(changeGalleryImages, 3500);
+        }
     }
-
-}
-
-setInterval(changeFeatureSlides, 5000);
-
-
-/* ========================================
-   GALLERY SLIDESHOW
-======================================== */
-
-/* ========================================
-   GALLERY SYNCHRONIZED SLIDESHOW
-======================================== */
-
-/* ========================================
-   GALLERY SMOOTH SYNCHRONIZED SLIDESHOW
-======================================== */
-
-/* ========================================
-   GALLERY SYNCHRONIZED PHOTO SLIDESHOW
-======================================== */
-
-/* ========================================
-   GALLERY SYNCHRONIZED SLIDESHOW
-   SMOOTH - NO BLANK SCREEN
-======================================== */
-
-const galleryBoxes =
-    document.querySelectorAll(".gallery-slideshow");
-
-let gallerySlideIndex = 0;
-
-
-/* Preload Gallery images */
-
-galleryBoxes.forEach(function (box) {
-
-    const images = box
-        .getAttribute("data-images")
-        .split(",");
-
-    images.forEach(function (src) {
-
-        const img = new Image();
-
-        img.src = src.trim();
-
-    });
-
-});
-
-
-function changeGalleryImages() {
-
-    /* Calculate NEXT image ONCE */
-
-    gallerySlideIndex++;
-
-    if (gallerySlideIndex >= 4) {
-        gallerySlideIndex = 0;
-    }
-
-
-    /*
-       First prepare ALL new images.
-       Nothing becomes blank.
-    */
-
-    galleryBoxes.forEach(function (box) {
-
-        const images =
-            box.getAttribute("data-images")
-               .split(",");
-
-        const image =
-            box.querySelector("img");
-
-        image.src =
-            images[gallerySlideIndex].trim();
-
-    });
-
-}
-
-
-/* Change ALL gallery images together */
-
-setInterval(changeGalleryImages, 3500);
+})();

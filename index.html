@@ -3,50 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Southern Coast | Benaulim, Goa</title>
-
-    <meta name="description"
-          content="Southern Coast - Wine, Beer & Spirits Store in Benaulim, Goa.">
+    <meta name="description" content="Southern Coast - Wine, Beer & Spirits Store in Benaulim, Goa.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
-          rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css">
 </head>
-
 <body>
 
-<!-- =========================
-     LOADER
-========================= -->
-
-<div class="loader" id="loader">
-
+<div class="loader" id="loader" aria-hidden="true">
     <a href="#home" class="loader-logo">
         <img src="logo/logo2-transparent.png" alt="Southern Coast Logo">
     </a>
-
     <div class="loader-line"></div>
-
 </div>
 
-
-<!-- =========================
-     NAVBAR
-========================= -->
-
 <header class="navbar" id="navbar">
-
-    <a href="#home" class="logo">
+    <a href="#home" class="logo" aria-label="Southern Coast home">
         <img src="logo/logo2-transparent.png" alt="Southern Coast Logo">
     </a>
 
-    <nav id="navMenu">
-
+    <nav id="navMenu" aria-label="Primary navigation">
         <a href="#home" class="nav-link active">Home</a>
         <a href="#about" class="nav-link">About</a>
         <a href="#menu" class="nav-link">Menu</a>
@@ -54,882 +33,260 @@
         <a href="#gallery" class="nav-link">Gallery</a>
         <a href="#location" class="nav-link">Location</a>
         <a href="#contact" class="nav-link">Contact</a>
-
     </nav>
 
-    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
-        <span></span>
-        <span></span>
-        <span></span>
+    <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+        <span></span><span></span><span></span>
     </button>
-
 </header>
 
-
-<!-- =========================
-     HERO
-========================= -->
-
 <section class="hero" id="home">
-
-    <div class="hero-bg">
-   
-
-    <div class="hero-slide active" style="background-image: url('home/2.webp');"></div>
-    <div class="hero-slide" style="background-image: url('home/3.webp');"></div>
-    <div class="hero-slide" style="background-image: url('home/4.webp');"></div>
-</div>
+    <div class="hero-bg" aria-hidden="true">
+        <div class="hero-slide active" style="background-image:url('home/2.webp')"></div>
+        <div class="hero-slide" style="background-image:url('home/3.webp')"></div>
+        <div class="hero-slide" style="background-image:url('home/4.webp')"></div>
+    </div>
     <div class="hero-overlay"></div>
 
     <div class="hero-content reveal">
-
-    
-
-    <p class="hero-title">
-        WINE, BEER & SPIRITS STORE
-    </p>
-
-    <p class="hero-description">
-        Indian, Goan & Imported selections in the heart of
-        Benaulim, Goa.
-    </p>
-
-    <div class="hero-buttons">
-
-        <a href="#about" class="btn btn-primary">
-            Discover More
-        </a>
-
-        <a href="#location" class="btn btn-outline">
-            Find Us
-        </a>
-
+        <p class="hero-title">WINE, BEER &amp; SPIRITS STORE</p>
+        <p class="hero-description">Indian, Goan &amp; Imported selections in the heart of Benaulim, Goa.</p>
+        <div class="hero-buttons">
+            <a href="#about" class="btn btn-primary">Discover More</a>
+            <a href="#location" class="btn btn-outline">Find Us</a>
+        </div>
     </div>
 
-</div>
     <div class="hero-info">
-
-        <div>
-            <strong>700</strong>
-            <span>N</span>
-        </div>
-
-        <div>
-            <strong>10 AM</strong>
-            <span>—</span>
-            <strong>11 PM</strong>
-        </div>
-
-        <div>
-            <strong>HOME DELIVERY</strong>
-            <span>AVAILABLE</span>
-        </div>
-
+        <div><strong>700</strong><span>N</span></div>
+        <div><strong>10 AM</strong><span>—</span><strong>11 PM</strong></div>
+        <div><strong>HOME DELIVERY</strong><span>AVAILABLE</span></div>
     </div>
 
-    <div class="scroll-indicator">
-        <span>SCROLL</span>
-        <i></i>
-    </div>
-
+    <div class="scroll-indicator" aria-hidden="true"><span>SCROLL</span><i></i></div>
 </section>
-
-
-<!-- =========================
-     ABOUT
-========================= -->
 
 <section class="about section" id="about">
-
     <div class="about-image reveal-left">
-
-    <img
-        src="about/06.webp"
-        alt="Southern Coast">
-
-    <div class="image-badge">
-        <span>GOA</span>
-        <strong>700 N</strong>
+        <img src="about/06.webp" alt="Southern Coast store">
+        <div class="image-badge"><span>GOA</span><strong>700 N</strong></div>
     </div>
 
-</div>
     <div class="about-content reveal-right">
-
         <p class="eyebrow dark">WELCOME TO SOUTHERN COAST</p>
-
-        <h2>
-            A Taste of
-            <span>Goa</span>
-        </h2>
-
-        <p>
-            Southern Coast is a Wine, Beer & Spirits Store located
-            in Benaulim, Goa.
-        </p>
-
-        <p>
-            Our store brings together Indian, Goan and imported
-            selections in one convenient location.
-        </p>
+        <h2>A Taste of <span>Goa</span></h2>
+        <p>Southern Coast is a Wine, Beer &amp; Spirits Store located in Benaulim, Goa.</p>
+        <p>Our store brings together Indian, Goan and imported selections in one convenient location.</p>
 
         <div class="about-details">
-
-            <div>
-                <span class="detail-icon">◷</span>
-
-                <div>
-                    <strong>Opening Hours</strong>
-                    <p>10 AM – 11 PM</p>
-                </div>
-            </div>
-
-            <div>
-                <span class="detail-icon">⌖</span>
-
-                <div>
-                    <strong>Location</strong>
-                    <p>Benaulim, Goa</p>
-                </div>
-            </div>
-
+            <div><span class="detail-icon">◷</span><div><strong>Opening Hours</strong><p>10 AM – 11 PM</p></div></div>
+            <div><span class="detail-icon">⌖</span><div><strong>Location</strong><p>Benaulim, Goa</p></div></div>
         </div>
 
-        <a href="#contact" class="text-link">
-            Contact Southern Coast →
-        </a>
-
+        <a href="#contact" class="text-link">Contact Southern Coast →</a>
     </div>
-
 </section>
 
-
-<!-- =========================
-     FEATURES
-========================= -->
-
-<section class="features">
-
-    <!-- INDIAN -->
-    <div class="feature reveal">
-
-       <div class="feature-image feature-slideshow">
-
-    <div class="feature-slide active"
-         style="background-image: url('indian/indian4.webp');">
-    </div>
-
-    <div class="feature-slide"
-         style="background-image: url('indian/indian2.webp');">
-    </div>
-
-    <div class="feature-slide"
-         style="background-image: url('indian/indian3.webp');">
-    </div>
-
-</div>
-        <h3>Indian Selection</h3>
-
-        <p>
-            A curated selection from across India.
-        </p>
-
-    </div>
-
-
-    <!-- GOAN -->
-    <div class="feature reveal">
-
+<section class="features" aria-label="Southern Coast highlights">
+    <article class="feature reveal">
         <div class="feature-image feature-slideshow">
+            <div class="feature-slide active" style="background-image:url('indian/indian4.webp')"></div>
+            <div class="feature-slide" style="background-image:url('indian/indian2.webp')"></div>
+            <div class="feature-slide" style="background-image:url('indian/indian3.webp')"></div>
+        </div>
+        <h3>Indian Selection</h3><p>A curated selection from across India.</p>
+    </article>
 
-    <div class="feature-slide active"
-         style="background-image: url('goan/goan1.webp');"></div>
-
-    <div class="feature-slide"
-         style="background-image: url('goan/goan2.webp');"></div>
-
-    <div class="feature-slide"
-         style="background-image: url('goan/goan3.webp');"></div>
-
-</div>
-
-        <h3>Goan Favourites</h3>
-
-        <p>
-            Discover local Goan favourites.
-        </p>
-
-    </div>
-
-
-    <!-- IMPORTED -->
-    <div class="feature reveal">
-
+    <article class="feature reveal">
         <div class="feature-image feature-slideshow">
+            <div class="feature-slide active" style="background-image:url('goan/goan1.webp')"></div>
+            <div class="feature-slide" style="background-image:url('goan/goan2.webp')"></div>
+            <div class="feature-slide" style="background-image:url('goan/goan3.webp')"></div>
+        </div>
+        <h3>Goan Favourites</h3><p>Discover local Goan favourites.</p>
+    </article>
 
-    <div class="feature-slide active"
-         style="background-image: url('imported/imported1.webp');"></div>
-
-    <div class="feature-slide"
-         style="background-image: url('imported/imported2.webp');"></div>
-
-    <div class="feature-slide"
-         style="background-image: url('imported/imported3.webp');"></div>
-
-</div>
-
-        <h3>Imported Selection</h3>
-
-        <p>
-            Explore selections from around the world.
-        </p>
-
-    </div>
-
-
-    <!-- LOCATION -->
-    <div class="feature reveal">
-
+    <article class="feature reveal">
         <div class="feature-image feature-slideshow">
+            <div class="feature-slide active" style="background-image:url('imported/imported1.webp')"></div>
+            <div class="feature-slide" style="background-image:url('imported/imported2.webp')"></div>
+            <div class="feature-slide" style="background-image:url('imported/imported3.webp')"></div>
+        </div>
+        <h3>Imported Selection</h3><p>Explore selections from around the world.</p>
+    </article>
 
-    <div class="feature-slide active"
-         style="background-image: url('location/location1.webp');"></div>
-
-    <div class="feature-slide"
-         style="background-image: url('location/location2.webp');"></div>
-
-    <div class="feature-slide"
-         style="background-image: url('location/location3.webp');"></div>
-
-</div>
-
-        <h3>Convenient Location</h3>
-
-        <p>
-            Conveniently located in Benaulim, Goa.
-        </p>
-
-    </div>
-
+    <article class="feature reveal">
+        <div class="feature-image feature-slideshow">
+            <div class="feature-slide active" style="background-image:url('location/location1.webp')"></div>
+            <div class="feature-slide" style="background-image:url('location/location2.webp')"></div>
+            <div class="feature-slide" style="background-image:url('location/location3.webp')"></div>
+        </div>
+        <h3>Convenient Location</h3><p>Conveniently located in Benaulim, Goa.</p>
+    </article>
 </section>
-
-
-<!-- =========================
-     MENU
-========================= -->
 
 <section class="menu-section section" id="menu">
-
     <div class="section-heading reveal">
-
         <p class="eyebrow dark">EXPLORE</p>
-
-        <h2>
-            Our <span>Selection</span>
-        </h2>
-
-        <p>
-            Explore the different categories available at
-            Southern Coast.
-        </p>
-
+        <h2>Our <span>Selection</span></h2>
+        <p>Explore the different categories available at Southern Coast.</p>
     </div>
-
 
     <div class="menu-grid">
-
         <article class="menu-card reveal">
-
             <div class="menu-image">
-
-                <img
-                    src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=900&q=80"
-                    alt="Wine collection">
-
+                <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=900&q=80" alt="Wine collection">
                 <span>01</span>
-
             </div>
-
-            <div class="menu-content">
-
-                <h3>Wine</h3>
-
-                <p>
-                    Explore Indian, Goan and imported wines
-                    selected for different tastes and occasions.
-                </p>
-
-                <a href="#contact">Explore →</a>
-
-            </div>
-
+            <div class="menu-content"><h3>Wine</h3><p>Explore Indian, Goan and imported wines selected for different tastes and occasions.</p><a href="#contact">Explore →</a></div>
         </article>
-
 
         <article class="menu-card reveal">
-
-            <div class="menu-image">
-
-                <img
-    src="menu/beer.webp"
-    alt="Beer collection">
-                <span>02</span>
-
-            </div>
-
-            <div class="menu-content">
-
-                <h3>Beer</h3>
-
-                <p>
-                   Explore local, Indian and imported beers
-                   available at Southern Coast.
-                </p>
-
-                <a href="#contact">Explore →</a>
-
-            </div>
-
+            <div class="menu-image"><img src="menu/beer.webp" alt="Beer collection"><span>02</span></div>
+            <div class="menu-content"><h3>Beer</h3><p>Explore local, Indian and imported beers available at Southern Coast.</p><a href="#contact">Explore →</a></div>
         </article>
-
 
         <article class="menu-card reveal">
-
-            <div class="menu-image">
-
-               <img
-    src="menu/2 (2).webp"
-    alt="Spirit collection">
-                <span>03</span>
-
-            </div>
-
-            <div class="menu-content">
-
-                <h3>Spirits</h3>
-
-                <p>
-                    Discover a selection of whisky, rum,
-                    vodka, gin and other spirits.
-                </p>
-
-                <a href="#contact">Explore →</a>
-
-            </div>
-
+            <div class="menu-image"><img src="menu/2 (2).webp" alt="Spirit collection"><span>03</span></div>
+            <div class="menu-content"><h3>Spirits</h3><p>Discover a selection of whisky, rum, vodka, gin and other spirits.</p><a href="#contact">Explore →</a></div>
         </article>
-
     </div>
-
 </section>
-
-
-<!-- =========================
-     TODAY'S SPECIAL
-========================= -->
 
 <section class="special" id="special">
-
-    <div class="special-bg"></div>
-
-    <div class="special-overlay"></div>
-
+    <div class="special-bg"></div><div class="special-overlay"></div>
     <div class="special-content reveal">
-
         <p class="eyebrow">FEATURED TODAY</p>
-
-        <h2>
-            Today's
-            <span>Special</span>
-        </h2>
-
+        <h2>Today's <span>Special</span></h2>
         <div class="special-line"></div>
-
-        <p>
-            Ask our team about today's featured selections
-            and discover something new.
-        </p>
-
-        <a href="#contact" class="btn btn-primary">
-            Enquire Now
-        </a>
-
+        <p>Ask our team about today's featured selections and discover something new.</p>
+        <a href="#contact" class="btn btn-primary">Enquire Now</a>
     </div>
-
 </section>
-
-
-<!-- =========================
-     GALLERY
-========================= -->
 
 <section class="gallery section" id="gallery">
-
     <div class="section-heading reveal">
-
         <p class="eyebrow dark">VISUAL JOURNEY</p>
-
-        <h2>
-            Our <span>Gallery</span>
-        </h2>
-
-        <p>
-            Take a look inside Southern Coast.
-        </p>
-
+        <h2>Our <span>Gallery</span></h2>
+        <p>Take a look inside Southern Coast.</p>
     </div>
 
-
-    <!-- Gallery Tabs -->
-
-    <div class="gallery-tabs">
-
-        <button class="gallery-tab active" data-filter="all">
-            All
-        </button>
-
-        <button class="gallery-tab" data-filter="image">
-            Images
-        </button>
-
-        <button class="gallery-tab" data-filter="video">
-            Videos
-        </button>
-
-        <button class="gallery-tab" data-filter="store">
-            Store
-        </button>
-
+    <div class="gallery-tabs" aria-label="Gallery filters">
+        <button type="button" class="gallery-tab active" data-filter="all">All</button>
+        <button type="button" class="gallery-tab" data-filter="image">Images</button>
+        <button type="button" class="gallery-tab" data-filter="store">Store</button>
     </div>
-
 
     <div class="gallery-grid">
-
-
-        <!-- IMAGE -->
-
-        <div class="gallery-item image-item" data-category="image">
-
-        <div class="gallery-slideshow"
-             data-images="our selection/1.webp,our selection/2.webp,our selection/3.webp,our selection/4.webp">
-
-            <img src="our selection/1.webp" alt="Our Selection">
-
-        </div>
-
-        <div class="gallery-caption">
-            <span>IMAGE</span>
-            <h3>Our Selection</h3>
-        </div>
-
-    </div>
-
-        <!-- IMAGE -->
-
-        <div class="gallery-item image-item" data-category="image">
-
-        <div class="gallery-slideshow"
-             data-images="collection/collection1.webp,collection/collection2.webp,collection/collection3.webp,collection/collection4.webp">
-
-            <img src="collection/collection1.webp" alt="Collection">
-
-        </div>
-
-        <div class="gallery-caption">
-            <span>IMAGE</span>
-            <h3>Collection</h3>
-        </div>
-
-    </div>
-
-
-        <!-- STORE -->
-
-        <div class="gallery-item store-item" data-category="store">
-
-            <img
-                src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?auto=format&fit=crop&w=1000&q=80"
-                alt="Store">
-
-            <div class="gallery-caption">
-                <span>STORE</span>
-                <h3>Southern Coast</h3>
+        <article class="gallery-item gallery-selection" data-category="image">
+            <div class="gallery-slideshow" data-images="our selection/1.webp,our selection/2.webp,our selection/3.webp,our selection/4.webp">
+                <img src="our selection/1.webp" alt="Our Selection">
             </div>
+            <div class="gallery-caption"><span>IMAGE</span><h3>Our Selection</h3></div>
+        </article>
 
-        </div>
-
-
-        <!-- VIDEO PLACEHOLDER -->
-
-        <div class="gallery-item video-item" data-category="video">
-
-            <div class="video-placeholder">
-
-                <button class="play-button" id="playVideo">
-                    ▶
-                </button>
-
-                <span>VIDEO</span>
-
+        <article class="gallery-item gallery-collection" data-category="image">
+            <div class="gallery-slideshow" data-images="collection/collection1.webp,collection/collection2.webp,collection/collection3.webp,collection/collection4.webp">
+                <img src="collection/collection1.webp" alt="Collection">
             </div>
+            <div class="gallery-caption"><span>IMAGE</span><h3>Collection</h3></div>
+        </article>
 
-            <div class="gallery-caption">
-                <span>VIDEO</span>
-                <h3>Inside Southern Coast</h3>
+        <div class="gallery-item gallery-bottle" data-category="store">
+            <img src="bottle/bottle2.webp" alt="Southern Coast Bottle">
+        </div>
+
+        <article class="gallery-item gallery-good-times" data-category="image">
+            <div class="gallery-slideshow" data-images="good times/good1.webp,good times/good2.webp,good times/good3.webp,good times/good4.webp">
+                <img src="good times/good1.webp" alt="Good Times">
             </div>
+            <div class="gallery-caption"><span>IMAGE</span><h3>Good Times</h3></div>
+        </article>
 
-        </div>
-
-
-        <!-- IMAGE -->
-
-         <div class="gallery-item image-item" data-category="image">
-
-        <div class="gallery-slideshow"
-             data-images="good times/good1.webp,good times/good2.webp,good times/good3.webp,good times/good4.webp">
-
-            <img src="good times/good1.webp" alt="Good Times">
-
-        </div>
-
-        <div class="gallery-caption">
-            <span>IMAGE</span>
-            <h3>Good Times</h3>
-        </div>
-
+        <article class="gallery-item gallery-space" data-category="image store">
+            <div class="gallery-slideshow" data-images="our space/space1.webp,our space/space2.webp,our space/space3.webp,our space/space4.webp">
+                <img src="our space/space1.webp" alt="Our Space">
+            </div>
+            <div class="gallery-caption"><span>STORE</span><h3>Our Space</h3></div>
+        </article>
     </div>
-
-        <!-- STORE -->
-
-        <div class="gallery-item store-item" data-category="store">
-
-        <div class="gallery-slideshow"
-             data-images="our space/space1.webp,our space/space2.webp,our space/space3.webp,our space/space4.webp">
-
-            <img src="our space/space1.webp" alt="Our Space">
-
-        </div>
-
-        <div class="gallery-caption">
-            <span>STORE</span>
-            <h3>Our Space</h3>
-        </div>
-
-    </div>
-
-    </div>
-
 </section>
-
-
-<!-- =========================
-     LOCATION
-========================= -->
 
 <section class="location" id="location">
-
     <div class="location-info reveal-left">
-
         <p class="eyebrow">FIND US</p>
-
-        <h2>
-            Visit
-            <span>Southern Coast</span>
-        </h2>
-
-        <p>
-            Come visit us in Benaulim, Goa.
-        </p>
+        <h2>Visit <span>Southern Coast</span></h2>
+        <p>Come visit us in Benaulim, Goa.</p>
 
         <div class="location-details">
-
-            <div>
-                <strong>ADDRESS</strong>
-                <p>Southern Coast<br>Benaulim, Goa, India</p>
-            </div>
-
-            <div>
-                <strong>PHONE</strong>
-                <p>
-                    <a href="tel:+918956943651">
-                        +91 89569 43651
-                    </a>
-                </p>
-            </div>
-
-            <div>
-                <strong>OPENING HOURS</strong>
-                <p>
-                    10 AM – 11 PM<br>
-                    No breaks
-                </p>
-            </div>
-
+            <div><strong>ADDRESS</strong><p>Southern Coast<br>Benaulim, Goa, India</p></div>
+            <div><strong>PHONE</strong><p><a href="tel:+918956943651">+91 89569 43651</a></p></div>
+            <div><strong>OPENING HOURS</strong><p>10 AM – 11 PM<br>No breaks</p></div>
         </div>
 
-       <a
-    href="https://www.google.com/maps/place/Southern+Coast/data=!4m7!3m6!1s0x3bbfb3da889d4959:0xbec1ea65331916a2!8m2!3d15.2619819!4d73.9407446!16s%2Fg%2F11yf8p70sr!19sChIJWUmdiNqzvzsRohYZM2Xqwb4?authuser=0&hl=en&g_ep=EgoyMDI2MDgyNi4wIJJjKgBIAVAD&rclk=1"
-    target="_blank"
-    rel="noopener noreferrer"
-    class="btn btn-primary">
-    Open in Google Maps
-</a>
-
+        <a href="https://www.google.com/maps/place/Southern+Coast/data=!4m7!3m6!1s0x3bbfb3da889d4959:0xbec1ea65331916a2!8m2!3d15.2619819!4d73.9407446!16s%2Fg%2F11yf8p70sr" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Open in Google Maps</a>
     </div>
-
 
     <div class="map-container">
-
-       <iframe
-    src="https://www.google.com/maps?q=15.2619819,73.9407446&z=18&output=embed"
-    loading="lazy"
-    allowfullscreen
-    referrerpolicy="no-referrer-when-downgrade">
-</iframe>
+        <iframe src="https://www.google.com/maps?q=15.2619819,73.9407446&z=18&output=embed" title="Southern Coast location" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
-
 </section>
-
-
-<!-- =========================
-     CONTACT
-========================= -->
 
 <section class="contact section" id="contact">
-
     <div class="section-heading reveal">
-
         <p class="eyebrow dark">GET IN TOUCH</p>
-
-        <h2>
-            Contact <span>Us</span>
-        </h2>
-
-        <p>
-            Have a question? Get in touch with Southern Coast.
-        </p>
-
+        <h2>Contact <span>Us</span></h2>
+        <p>Have a question? Get in touch with Southern Coast.</p>
     </div>
-
 
     <div class="contact-wrapper">
-
         <div class="contact-box reveal-left">
-
-            <div class="contact-row">
-
-                <span>PHONE</span>
-
-                <a href="tel:+918956943651">
-                    +91 89569 43651
-                </a>
-
-            </div>
-
-            <div class="contact-row">
-
-                <span>LOCATION</span>
-
-                <strong>Benaulim, Goa</strong>
-
-            </div>
-
-            <div class="contact-row">
-
-                <span>HOURS</span>
-
-                <strong>10 AM – 11 PM</strong>
-
-            </div>
-
-            <div class="contact-row">
-
-                <span>DELIVERY</span>
-
-                <strong>Available</strong>
-
-            </div>
-
+            <div class="contact-row"><span>PHONE</span><a href="tel:+918956943651">+91 89569 43651</a></div>
+            <div class="contact-row"><span>LOCATION</span><strong>Benaulim, Goa</strong></div>
+            <div class="contact-row"><span>HOURS</span><strong>10 AM – 11 PM</strong></div>
+            <div class="contact-row"><span>DELIVERY</span><strong>Available</strong></div>
         </div>
-
 
         <form class="contact-form reveal-right" id="contactForm">
-
-            <input
-                type="text"
-                id="name"
-                placeholder="Your Name"
-                required>
-
-            <input
-                type="tel"
-                id="phone"
-                placeholder="Phone Number"
-                required>
-
-            <textarea
-                id="message"
-                placeholder="Your Message"
-                required></textarea>
-
-            <button type="submit" class="btn btn-primary">
-                Send Message
-            </button>
-
+            <input type="text" id="name" placeholder="Your Name" autocomplete="name" required>
+            <input type="tel" id="phone" placeholder="Phone Number" autocomplete="tel" required>
+            <textarea id="message" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn btn-primary">Send Message</button>
         </form>
-
     </div>
-
 </section>
 
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<!-- =========================
-     FOOTER
-========================= -->
-
 <footer>
-
-    <!-- LOGO -->
-
-    <div class="footer-logo">
-
-        <img
-            src="logo/logo2-transparent.png"
-            alt="Southern Coast Logo">
-
-    </div>
-
-
-    <!-- DESCRIPTION -->
-
-    <p class="footer-description">
-        Wine, Beer & Spirits Store
-        <br>
-        Indian, Goan & Imported Selections · Benaulim, Goa
-    </p>
-
-
-    <!-- QUICK LINKS -->
+    <div class="footer-logo"><img src="logo/logo2-transparent.png" alt="Southern Coast Logo"></div>
+    <p class="footer-description">Wine, Beer &amp; Spirits Store<br>Indian, Goan &amp; Imported Selections · Benaulim, Goa</p>
 
     <div class="footer-section">
-
-        <span class="footer-title">
-            QUICK LINKS
-        </span>
-
+        <span class="footer-title">QUICK LINKS</span>
         <div class="footer-links">
-
-            <a href="#home">Home</a>
-
-            <a href="#about">About</a>
-
-            <a href="#menu">Our Selection</a>
-
-            <a href="#gallery">Gallery</a>
-
-            <a href="#location">Location</a>
-
-            <a href="#contact">Contact</a>
-
+            <a href="#home">Home</a><a href="#about">About</a><a href="#menu">Our Selection</a><a href="#gallery">Gallery</a><a href="#location">Location</a><a href="#contact">Contact</a>
         </div>
-
     </div>
-
-
-    <!-- CONTACT -->
 
     <div class="footer-contact">
-
-        <span class="footer-title">
-            GET IN TOUCH
-        </span>
-
-        <a href="tel:+918956943651">
-            +91 89569 43651
-        </a>
-
-        <span>
-            Benaulim, Goa
-        </span>
-
-        <span>
-            10 AM – 11 PM
-        </span>
-
-        <span>
-            Home Delivery Available
-        </span>
-
+        <span class="footer-title">GET IN TOUCH</span>
+        <a href="tel:+918956943651">+91 89569 43651</a><span>Benaulim, Goa</span><span>10 AM – 11 PM</span><span>Home Delivery Available</span>
     </div>
-
-
-    <!-- ACTION BUTTONS -->
 
     <div class="footer-social">
-
-        <a
-            href="https://share.google/Abjko8ILX9NTbdSOO"
-            target="_blank"
-            rel="noopener">
-
-            Google Maps
-
-        </a>
-
-        <a href="tel:+918956943651">
-
-            Call Us
-
-        </a>
-
+        <a href="https://www.google.com/maps?q=15.2619819,73.9407446" target="_blank" rel="noopener">Google Maps</a>
+        <a href="tel:+918956943651">Call Us</a>
     </div>
 
-
-    <!-- COPYRIGHT -->
-
-    <p class="copyright">
-
-        © 2026 Southern Coast.
-        All Rights Reserved.
-
-    </p>
-
+    <p class="copyright">© 2026 Southern Coast. All Rights Reserved.</p>
 </footer>
 
-
-<!-- =========================
-     VIDEO MODAL
-========================= -->
-
-<div class="video-modal" id="videoModal">
-
+<div class="video-modal" id="videoModal" aria-hidden="true">
     <div class="video-modal-content">
-
-        <button class="close-video" id="closeVideo">
-            ×
-        </button>
-
-        <div class="video-demo">
-
-            <div class="video-play-large">
-                ▶
-            </div>
-
-            <p>
-                Add your store video here
-            </p>
-
-        </div>
-
+        <button class="close-video" id="closeVideo" type="button" aria-label="Close video">×</button>
+        <div class="video-demo"><div class="video-play-large">▶</div><p>Add your store video here</p></div>
     </div>
-
 </div>
 
-
 <script src="./script.js"></script>
-
 </body>
 </html>
